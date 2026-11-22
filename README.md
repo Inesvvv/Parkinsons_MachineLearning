@@ -27,6 +27,8 @@ Binary classification of Parkinson's disease from voice recordings. The models a
 
 The tuned model's best grouped-CV ROC-AUC was about 0.89.
 
+This repo is my individual extension of the neural-network part of a group project. The group comparison against tree ensembles, logistic regression and k-NN is in [ML_Project](https://github.com/Inesvvv/ML_Project).
+
 ## Files
 
 | File | Contents |
