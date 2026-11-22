@@ -1,6 +1,6 @@
 # Parkinson's Disease Detection from Speech Features
 
-Binary classification of Parkinson's disease from voice recordings. The models are neural networks with **patient-grouped validation**, so no subject ever appears in both training and evaluation data, and their hyperparameters are tuned with **Bayesian optimisation (Optuna TPE)**.
+Binary classification of Parkinson's disease from voice recordings. The models are neural networks with **patient-grouped validation**, so no subject ever appears in both training and evaluation data, and their hyperparameters are tuned with **Bayesian optimization (Optuna TPE)**.
 
 ## Data
 
@@ -15,7 +15,7 @@ Binary classification of Parkinson's disease from voice recordings. The models a
 2. **Feature reduction.** Highly correlated features are dropped (753 → 539), then the top-*k* features are selected by mutual information. Every step is fit only on training folds.
 3. **Feature-count study.** Grouped CV is run for *k* ∈ {50, 100, 200, 300, all}. The best result is with **50 features (CV ROC-AUC 0.837)**, more than with all 539 (0.809).
 4. **PCA experiment.** The baseline network is compared with and without PCA, which retains 95% of variance and is fit inside each fold.
-5. **Hyperparameter search.** Optuna runs 50 trials with a TPE sampler and median pruning. It searches over depth (1–4 layers), width, activation, dropout, L2, learning rate, batch size and batch normalisation, and optimises mean grouped-CV ROC-AUC. Class weights correct for the class imbalance.
+5. **Hyperparameter search.** Optuna runs 50 trials with a TPE sampler and median pruning. It searches over depth (1–4 layers), width, activation, dropout, L2, learning rate, batch size and batch normalization, and optimizes mean grouped-CV ROC-AUC. Class weights correct for the class imbalance.
 6. **Threshold analysis.** Sensitivity, specificity and F1 are measured across decision thresholds, which matters for a screening setting.
 
 ## Results (held-out test subjects)
